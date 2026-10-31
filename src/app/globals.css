@@ -1,4 +1,20 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "bazar";
+  default: true;
+  --color-base-100: #ffffff;   /* কার্ড, hero */
+  --color-base-200: #f1f5ee;   /* পেজের bg */
+  --color-base-300: #e2e8dd;   /* border */
+  --color-primary: #15803d;    /* সবুজ বাটন */
+  --color-primary-content: #ffffff;
+  --color-success: #16a34a;    /* ▼ কমেছে */
+  --color-error: #dc2626;      /* ▲ বেড়েছে */
+}
 
 :root {
   --background: #ffffff;
