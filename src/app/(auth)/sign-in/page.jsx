@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -7,12 +7,23 @@ import { signIn } from "@/lib/auth-client";
 import PasswordInput from "@/components/PasswordInput";
 import SocialButtons from "@/components/SocialButtons";
 
+function getRedirect() {
+    const to = new URLSearchParams(window.location.search).get("redirect");
+    return to && to.startsWith("/") && !to.startsWith("//") ? to : "/";
+}
+
 export default function SignInPage() {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    useEffect(() => {
+        if (getRedirect() !== "/") {
+            toast.error("এই পেজ দেখতে আগে সাইন ইন করুন", { id: "need-login" });
+        }
+    }, []);
 
     function fail(msg) {
         setError(msg);
@@ -38,7 +49,7 @@ export default function SignInPage() {
         }
 
         toast.success("সাইন ইন সফল হয়েছে! স্বাগতম 🎉");
-        router.push("/");
+        router.push(getRedirect());
         router.refresh();
     }
 
