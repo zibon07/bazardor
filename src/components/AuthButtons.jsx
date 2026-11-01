@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useSession, signOut } from "@/lib/auth-client";
+import Image from "next/image";
 
 export default function AuthButtons() {
     const router = useRouter();
@@ -23,6 +24,7 @@ export default function AuthButtons() {
 
     const { name, email, image } = session.user;
 
+
     async function handleSignOut() {
         const { error } = await signOut();
         if (error) return toast.error("সাইন আউট করা যায়নি");
@@ -35,7 +37,7 @@ export default function AuthButtons() {
         <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="flex items-center gap-2 rounded-full pl-1 pr-3 py-1 hover:bg-base-200 transition cursor-pointer">
                 {image ? (
-                    <img src={image} alt={name} className="size-9 rounded-full object-cover" />
+                    <Image src={image} width={20} height={20} alt={name} className="size-9 rounded-full object-cover" />
                 ) : (
                     <span className="size-9 rounded-full bg-primary text-primary-content grid place-items-center font-bold">
                         {name?.charAt(0).toUpperCase()}

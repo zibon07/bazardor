@@ -2,6 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import Image from "next/image";
 
 export const metadata = { title: "আমার প্রোফাইল | বাজার দর" };
 
@@ -22,7 +23,7 @@ export default async function ProfilePage() {
                 <div className="px-5 sm:px-8 pb-7">
                     <div className="-mt-12 flex items-end justify-between gap-3">
                         {image ? (
-                            <img src={image} alt={name} className="size-24 rounded-full object-cover border-4 border-base-100 shadow" />
+                            <Image src={image} width={96} height={96} alt={name} className="size-24 rounded-full object-cover border-4 border-base-100 shadow" />
                         ) : (
                             <span className="size-24 rounded-full bg-primary text-primary-content grid place-items-center text-4xl font-bold border-4 border-base-100 shadow">
                                 {name?.charAt(0).toUpperCase()}
@@ -39,7 +40,7 @@ export default async function ProfilePage() {
                     <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div className="rounded-2xl bg-base-200 p-4">
                             <dt className="text-xs text-base-content/60">নাম</dt>
-                            <dd className="font-semibold mt-1 break-words">{name}</dd>
+                            <dd className="font-semibold mt-1 wrap-break">{name}</dd>
                         </div>
                         <div className="rounded-2xl bg-base-200 p-4">
                             <dt className="text-xs text-base-content/60">ইমেইল</dt>

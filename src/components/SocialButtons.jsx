@@ -6,9 +6,14 @@ import { signIn } from "@/lib/auth-client";
 export default function SocialButtons() {
   const [busy, setBusy] = useState("");
 
+  function getRedirect() {
+    const to = new URLSearchParams(window.location.search).get("redirect");
+    return to && to.startsWith("/") && !to.startsWith("//") ? to : "/";
+  }
+
   async function go(provider) {
     setBusy(provider);
-    const { error } = await signIn.social({ provider, callbackURL: "/" });
+    const { error } = await signIn.social({ provider, callbackURL: getRedirect() });
     if (error) {
       toast.error(error.message || "লগইন করা যায়নি, আবার চেষ্টা করুন");
       setBusy("");
