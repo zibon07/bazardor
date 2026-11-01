@@ -7,8 +7,8 @@ export async function getCategories() {
 }
 
 export const getCategory = async (slug) => {
-  const all = await getCategories();
-  return all.find((c) => c.slug === slug) ?? null;
+    const all = await getCategories();
+    return all.find((c) => c.slug === slug) ?? null;
 };
 
 export async function getProducts(category) {
@@ -18,4 +18,17 @@ export async function getProducts(category) {
     const res = await fetch(url);
     const data = await res.json();
     return data;
+
 }
+
+export const topRisers = (list, n = 6) =>
+    list
+        .filter((p) => p.change.dir === "up")
+        .sort((a, b) => b.change.pct - a.change.pct)
+        .slice(0, n);
+
+export const topFallers = (list, n = 6) =>
+    list
+        .filter((p) => p.change.dir === "down")
+        .sort((a, b) => a.change.pct - b.change.pct)
+        .slice(0, n);
