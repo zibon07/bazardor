@@ -13,8 +13,8 @@ const Navbar = async () => {
     });
 
     return (
-        <header className="bg-base-100 border-b border-base-300 sticky top-0 z-50 ">
-            <div className="max-w-6xl mx-auto px-4">
+        <header className="bg-base-100 border-b  border-base-300 sticky top-0 z-50 ">
+            <div className="max-w-6xl flex flex-col  items-center mx-auto px-4">
                 {/* সারি ১: লোগো + auth */}
                 <div className="navbar px-0 py-2 min-h-0">
                     <div className="navbar-start">

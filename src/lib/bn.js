@@ -1,3 +1,4 @@
+export const unitLabel = (u) => UNIT_BN[u] ?? u;
 const D = "০১২৩৪৫৬৭৮৯";
 export const toBn = (n) => String(n).replace(/\d/g, (d) => D[d]);
 export const fmtPrice = (n) => toBn(Number(n).toLocaleString("en-US"));

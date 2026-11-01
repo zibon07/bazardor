@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import Ticker from "@/components/Ticker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
     >
       <body className="bg-base-200 text-base-content min-h-screen">
         <Navbar/>
+        <Ticker></Ticker>
         {children}
       </body>
     </html>
