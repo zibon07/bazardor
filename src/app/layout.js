@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Ticker from "@/components/Ticker";
 import Footer from "@/components/Footer";
+import ToastProvider from "@/components/ToastProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="bg-base-200 text-base-content min-h-screen">
+          <ToastProvider />
         <Navbar/>
         <Ticker></Ticker>
         {children}
