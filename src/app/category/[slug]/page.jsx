@@ -2,6 +2,12 @@ import { notFound } from "next/navigation";
 import { getCategory, getProducts } from "@/lib/api";
 import CategoryProducts from "@/components/CategoryProducts";
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const category = await getCategory(slug);
+  return { title: category ? `${category.nameBn} পণ্যের দাম` : "বিভাগ পাওয়া যায়নি" };
+}
+
 export default async function CategoryPage({ params }) {
   const { slug } = await params;
 

@@ -7,6 +7,7 @@ import { signIn } from "@/lib/auth-client";
 import PasswordInput from "@/components/PasswordInput";
 import SocialButtons from "@/components/SocialButtons";
 
+
 function getRedirect() {
     const to = new URLSearchParams(window.location.search).get("redirect");
     return to && to.startsWith("/") && !to.startsWith("//") ? to : "/";

@@ -4,7 +4,11 @@ import { redirect, notFound } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { getProduct } from "@/lib/api";
 import { fmtPrice, toBn, unitBn, unitLabel, changeInfo } from "@/lib/bn";
-
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
+    const product = await getProduct(slug);
+    return { title: product ? `${product.nameBn} এর আজকের দাম` : "পণ্য পাওয়া যায়নি" };
+}
 const mid = (m) => (m.min + m.max) / 2;
 const fmtAvg = (n) =>
     Number.isInteger(n)
