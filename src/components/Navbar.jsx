@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CategoryLink from "./CategoryLink";
 import { getCategories } from "@/lib/api";
+import AuthButtons from "./AuthButtons";
 
 
 
@@ -43,8 +44,7 @@ const Navbar = async () => {
                     </div>
 
                     <div className="navbar-end gap-2">
-                        <Link href="/sign-in" className="btn btn-ghost btn-sm sm:btn-md">সাইন ইন</Link>
-                        <Link href="/sign-up" className="btn btn-success btn-sm sm:btn-md">সাইন আপ</Link>
+                        <AuthButtons />
                     </div>
                 </div>
 
