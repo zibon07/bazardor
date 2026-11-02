@@ -6,7 +6,7 @@
 
 চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার আজকের বাজারদর, বাজারভিত্তিক বিস্তারিত এবং দামের পরিবর্তন, সব এক জায়গায়।
 
-[🌐 Live Demo](YOUR_LIVE_LINK) · [💻 GitHub Repository](YOUR_REPO_LINK)
+[🌐 Live Demo](https://bazardor-beta.vercel.app/) · [💻 GitHub Repository](https://github.com/zibon07/bazardor.git)
 
 </div>
 
